@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing — KK Web Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="navbar"><a href="index.html" class="nav-logo">KK<span>Web</span><div class="nav-dot"></div></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="pricing.html" class="active">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul><a href="contact.html" class="nav-cta">Hire Me</a><button class="hamburger" onclick="toggleMenu()">☰</button></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html" onclick="closeMenu()">Home</a><a href="services.html" onclick="closeMenu()">Services</a><a href="portfolio.html" onclick="closeMenu()">Portfolio</a><a href="pricing.html" onclick="closeMenu()">Pricing</a><a href="about.html" onclick="closeMenu()">About</a><a href="contact.html" onclick="closeMenu()">Contact</a></div>
+
+<div class="page-hero">
+  <span class="eyebrow">Transparent Pricing</span>
+  <h1>Simple, Clear Packages</h1>
+  <p>No hidden charges. You know exactly what you pay and what you get — before we start.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="p-label">Starter</div>
+        <div class="p-name">Basic Website</div>
+        <div class="p-amount">₹3,000</div>
+        <div class="p-desc">One-time payment · Perfect for small businesses</div>
+        <ul class="p-features">
+          <li class="p-feat">Up to 5 pages</li>
+          <li class="p-feat">Mobile responsive design</li>
+          <li class="p-feat">WhatsApp button integration</li>
+          <li class="p-feat">Contact form</li>
+          <li class="p-feat">Free hosting on Vercel</li>
+          <li class="p-feat">Domain connection help</li>
+          <li class="p-feat">1 month free support</li>
+        </ul>
+        <a href="https://wa.me/918094845254?text=Hello%20KK%20Web%20Solutions%2C%20I%20need%20Basic%20Website%20package" target="_blank" class="p-btn">Get Started →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="feat-badge">⭐ Most Popular</div>
+        <div class="p-label">Business</div>
+        <div class="p-name">Full Business Site</div>
+        <div class="p-amount">₹8,000</div>
+        <div class="p-desc">One-time payment · Best for shops & dealers</div>
+        <ul class="p-features">
+          <li class="p-feat">Everything in Basic +</li>
+          <li class="p-feat">Product catalogue (50+ items)</li>
+          <li class="p-feat">Google Maps integration</li>
+          <li class="p-feat">Domain setup included</li>
+          <li class="p-feat">SEO optimization</li>
+          <li class="p-feat">Customer reviews section</li>
+          <li class="p-feat">3 months free support</li>
+        </ul>
+        <a href="https://wa.me/918094845254?text=Hello%20KK%20Web%20Solutions%2C%20I%20need%20Business%20Website%20package" target="_blank" class="p-btn">Get Started →</a>
+      </div>
+      <div class="price-card">
+        <div class="p-label">Premium</div>
+        <div class="p-name">Custom Solution</div>
+        <div class="p-amount">₹15,000+</div>
+        <div class="p-desc">Custom quote · Advanced requirements</div>
+        <ul class="p-features">
+          <li class="p-feat">Everything in Business +</li>
+          <li class="p-feat">Custom backend / database</li>
+          <li class="p-feat">Admin dashboard</li>
+          <li class="p-feat">Payment gateway integration</li>
+          <li class="p-feat">Advanced server setup</li>
+          <li class="p-feat">API development</li>
+          <li class="p-feat">1 year full support</li>
+        </ul>
+        <a href="https://wa.me/918094845254?text=Hello%20KK%20Web%20Solutions%2C%20I%20need%20Custom%20Solution" target="_blank" class="p-btn">Discuss Project →</a>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div style="margin-top:4rem">
+      <div class="section-head center"><div class="eyebrow">Add-Ons</div><h2 class="s-title">Additional Services</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2rem">
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;justify-content:space-between;align-items:center"><div><h4 style="font-size:.92rem;font-weight:700;margin-bottom:.2rem">Annual Maintenance</h4><p style="font-size:.8rem;color:var(--muted)">Updates, fixes & support all year</p></div><span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:1.1rem;white-space:nowrap">₹1,500/yr</span></div>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;justify-content:space-between;align-items:center"><div><h4 style="font-size:.92rem;font-weight:700;margin-bottom:.2rem">Domain & DNS Setup</h4><p style="font-size:.8rem;color:var(--muted)">Full domain configuration</p></div><span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:1.1rem;white-space:nowrap">₹500</span></div>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;justify-content:space-between;align-items:center"><div><h4 style="font-size:.92rem;font-weight:700;margin-bottom:.2rem">Server Setup Only</h4><p style="font-size:.8rem;color:var(--muted)">SSL, hosting, deployment</p></div><span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:1.1rem;white-space:nowrap">₹2,000</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container"><div class="cta-inner"><h2>Have a specific budget in mind?</h2><p>Tell me your requirements and budget — I'll work out the best solution for you.</p><div class="cta-btns"><a href="contact.html" class="btn-primary">Discuss Your Project</a><a href="https://wa.me/918094845254" target="_blank" class="btn-wa">💬 WhatsApp Me</a></div></div></div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="nav-logo" style="margin-bottom:.75rem">KK<span>Web</span></div><p>Professional web development & server setup for businesses across India.</p></div><div class="footer-links-col"><h4>Pages</h4><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><div class="footer-links-col"><h4>Services</h4><a href="services.html">Business Website</a><a href="services.html">Server Setup</a><a href="services.html">Product Catalogue</a><a href="services.html">Maintenance</a></div><div class="footer-links-col"><h4>Contact</h4><a href="tel:+918094845254">+91 80948 45254</a><a href="mailto:kailashkumar672002@gmail.com">kailashkumar672002@gmail.com</a><a href="#">Kuchaman City, Rajasthan</a><span style="color:rgba(255,255,255,.4);font-size:.82rem">Available 24/7</span></div></div><div class="footer-bottom"><p>© 2025 KK Web Solutions · Kailash Choudhary</p><a href="https://wa.me/918094845254" target="_blank" class="footer-wa">💬 WhatsApp</a></div></div></footer>
+<script src="main.js"></script>
+</body></html>

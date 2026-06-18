@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — KK Web Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="navbar"><a href="index.html" class="nav-logo">KK<span>Web</span><div class="nav-dot"></div></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul><a href="contact.html" class="nav-cta">Hire Me</a><button class="hamburger" onclick="toggleMenu()">☰</button></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html" onclick="closeMenu()">Home</a><a href="services.html" onclick="closeMenu()">Services</a><a href="portfolio.html" onclick="closeMenu()">Portfolio</a><a href="pricing.html" onclick="closeMenu()">Pricing</a><a href="about.html" onclick="closeMenu()">About</a><a href="contact.html" onclick="closeMenu()">Contact</a></div>
+
+<div class="page-hero">
+  <span class="eyebrow">My Work</span>
+  <h1>Portfolio</h1>
+  <p>Real websites built for real businesses — live, functional, and delivering results.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="portfolio-grid">
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0d2137,#1a4a7a)">
+          <svg width="90" height="90" viewBox="0 0 90 90" fill="none"><rect x="12" y="24" width="44" height="30" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M56 34l20-9v32l-20-9z" fill="none" stroke="#60a5fa" stroke-width="2.5"/><circle cx="34" cy="39" r="8" fill="none" stroke="#60a5fa" stroke-width="2"/><circle cx="34" cy="39" r="3" fill="#60a5fa"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Business Website · CCTV</span>
+          <h3>G Tech CCTV Solutions</h3>
+          <p>Complete 5-page business website for a CCTV security dealer. Includes 50+ product catalogue, WhatsApp integration, Google Maps, customer reviews section, and full SEO setup.</p>
+          <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">HTML/CSS</span>
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">JavaScript</span>
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">Vercel</span>
+          </div>
+          <a href="https://www.gtechcctv.com" target="_blank" class="proj-link">View Live Site →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#1a1a2e,#6366f1)">
+          <svg width="90" height="90" viewBox="0 0 90 90" fill="none"><rect x="18" y="18" width="54" height="54" rx="8" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M28 45h34M45 28v34" stroke="#a5b4fc" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Portfolio Website</span>
+          <h3>KK Web Solutions</h3>
+          <p>This multi-page portfolio — built to showcase services, display work, and generate leads through WhatsApp and contact form. Fast, clean, professional.</p>
+          <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">HTML/CSS</span>
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">Multi-Page</span>
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">Vercel</span>
+          </div>
+          <a href="#" class="proj-link">You're here! 👋</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0c1a2e,#0369a1)">
+          <svg width="90" height="90" viewBox="0 0 90 90" fill="none"><rect x="12" y="34" width="66" height="22" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="24" cy="45" r="4" fill="#38bdf8"/><circle cx="36" cy="45" r="4" fill="#38bdf8"/><circle cx="48" cy="45" r="4" fill="#38bdf8"/><path d="M24 56v10M36 56v10M48 56v10" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Server Setup</span>
+          <h3>Infrastructure Projects</h3>
+          <p>Multiple server setup projects — domain DNS configuration, SSL certificates, Vercel deployments, GitHub CI/CD pipelines. Zero-downtime deployments for multiple clients.</p>
+          <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">DNS/SSL</span>
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">GitHub</span>
+            <span style="background:#f1f5f9;color:#64748b;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">CI/CD</span>
+          </div>
+          <a href="contact.html" class="proj-link">Request Server Setup →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#064e3b,#10b981)">
+          <svg width="90" height="90" viewBox="0 0 90 90" fill="none"><rect x="22" y="28" width="46" height="34" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M32 45h26M45 36v18" stroke="#6ee7b7" stroke-width="3" stroke-linecap="round"/><path d="M18 70h54" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-dasharray="5 3"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Available Slot</span>
+          <h3>Your Business Next</h3>
+          <p>This slot is available for your project. Whether it's a shop, service business, or anything else — let's build your online presence together.</p>
+          <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+            <span style="background:#dcfce7;color:#16a34a;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px">Slot Open</span>
+          </div>
+          <a href="contact.html" class="proj-link">Start Your Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg2">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow">Skills & Technologies</div>
+      <h2 class="s-title">Technical Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>🎨 Frontend Development</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">HTML & CSS</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Responsive / Mobile-First</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">UI Design</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <h3>⚙️ Server & Deployment</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Server Configuration</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Domain & DNS</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">GitHub & Vercel</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">SSL & Security</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="nav-logo" style="margin-bottom:.75rem">KK<span>Web</span></div><p>Professional web development & server setup for businesses across India.</p></div><div class="footer-links-col"><h4>Pages</h4><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><div class="footer-links-col"><h4>Services</h4><a href="services.html">Business Website</a><a href="services.html">Server Setup</a><a href="services.html">Product Catalogue</a><a href="services.html">Maintenance</a></div><div class="footer-links-col"><h4>Contact</h4><a href="tel:+918094845254">+91 80948 45254</a><a href="mailto:kailashkumar672002@gmail.com">kailashkumar672002@gmail.com</a><a href="#">Kuchaman City, Rajasthan</a><span style="color:rgba(255,255,255,.4);font-size:.82rem">Available 24/7</span></div></div><div class="footer-bottom"><p>© 2025 KK Web Solutions · Kailash Choudhary</p><a href="https://wa.me/918094845254" target="_blank" class="footer-wa">💬 WhatsApp</a></div></div></footer>
+<script src="main.js"></script>
+</body></html>
