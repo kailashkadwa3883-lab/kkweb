@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KK Web Solutions — Web Developer & Server Expert</title>
+  <meta name="description" content="KK Web Solutions — Professional website development, server setup & hosting for businesses across Rajasthan."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#1a1a2e;--accent:#4f46e5;--accent2:#06b6d4;--text:#1a1a2e;--muted:#64748b;--border:#e2e8f0;--bg:#fff;--bg2:#f8faff;--r:14px}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+
+    /* NAV */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav-logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:6px}
+    .nav-logo span{color:var(--accent)}
+    .nav-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.9rem;transition:color .2s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-cta{background:var(--accent);color:#fff;padding:.55rem 1.3rem;border-radius:8px;font-weight:700;font-size:.88rem;text-decoration:none;transition:background .2s;white-space:nowrap}
+    .nav-cta:hover{background:#4338ca}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--text)}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:1rem 5%;z-index:998;flex-direction:column}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:.9rem 0;color:var(--text);text-decoration:none;font-weight:600;border-bottom:1px solid var(--border);font-size:.95rem}
+
+    /* HERO */
+    .hero{min-height:100vh;padding:120px 5% 80px;display:flex;align-items:center;background:linear-gradient(135deg,#f8faff 0%,#eef2ff 50%,#f0fdff 100%);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(79,70,229,.08) 0%,transparent 70%);border-radius:50%}
+    .hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#eef2ff;color:var(--accent);padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:1.25rem;border:1px solid #c7d2fe}
+    .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.15;color:var(--primary);margin-bottom:1.25rem}
+    .hero h1 em{color:var(--accent);font-style:normal}
+    .hero p{font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:480px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:#fff;padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-primary:hover{background:#4338ca;transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,70,229,.3)}
+    .btn-secondary{background:#fff;color:var(--primary);padding:.85rem 2rem;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;border:1.5px solid var(--border);display:inline-flex;align-items:center;gap:8px}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* HERO CARD */
+    .hero-visual{display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.1);width:100%;max-width:380px;border:1px solid var(--border);position:relative}
+    .float-badge{position:absolute;background:#fff;border-radius:12px;padding:.6rem 1rem;box-shadow:0 8px 24px rgba(0,0,0,.1);font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:6px;border:1px solid var(--border);animation:floatY 3s ease-in-out infinite}
+    .fb1{top:-20px;right:-10px}
+    .fb2{bottom:10px;left:-20px;animation-delay:1s}
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .hc-top{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
+    .hc-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem}
+    .hc-name{font-weight:700;font-size:1rem}
+    .hc-role{font-size:.78rem;color:var(--muted)}
+    .hc-status{margin-left:auto;background:#dcfce7;color:#16a34a;font-size:.72rem;font-weight:600;padding:.25rem .7rem;border-radius:50px;white-space:nowrap}
+    .hc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem}
+    .hc-tag{background:#f1f5f9;color:var(--muted);font-size:.74rem;font-weight:600;padding:.28rem .7rem;border-radius:6px}
+    .hc-tag.on{background:#eef2ff;color:var(--accent)}
+    .hc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+    .hc-stat{background:var(--bg2);border-radius:10px;padding:.75rem .5rem;text-align:center}
+    .hc-stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--primary)}
+    .hc-stat-l{font-size:.68rem;color:var(--muted);margin-top:2px}
+
+    /* STATS BAR */
+    .stats-bar{background:var(--primary);padding:2.5rem 5%}
+    .stats-bar-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+    .stat-n{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff}
+    .stat-n span{color:var(--accent2)}
+    .stat-l{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:4px}
+
+    /* COMMON */
+    section{padding:5rem 5%}
+    .container{max-width:1200px;margin:0 auto}
+    .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+    .s-title{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--primary);margin-bottom:1rem}
+    .s-sub{font-size:1rem;color:var(--muted);max-width:540px;line-height:1.7;margin-bottom:3rem}
+
+    /* SERVICES */
+    #services{background:var(--bg2)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .svc-card{background:#fff;border-radius:var(--r);padding:2rem;border:1.5px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+    .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform .3s}
+    .svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+    .svc-card:hover::before{transform:scaleX(1)}
+    .svc-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+    .svc-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+    .svc-card p{font-size:.87rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+    .svc-price{font-weight:700;color:var(--accent);font-size:.9rem}
+
+    /* PORTFOLIO */
+    #portfolio{background:#fff}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+    .proj-card{border-radius:var(--r);overflow:hidden;border:1.5px solid var(--border);transition:all .3s}
+    .proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+    .proj-thumb{height:180px;display:flex;align-items:center;justify-content:center}
+    .proj-body{padding:1.5rem}
+    .proj-tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:#eef2ff;padding:.25rem .7rem;border-radius:4px;display:inline-block;margin-bottom:.75rem}
+    .proj-body h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+    .proj-body p{font-size:.84rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+    .proj-link{font-size:.85rem;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+    .proj-link:hover{text-decoration:underline}
+
+    /* SKILLS */
+    #skills{background:var(--bg2)}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem}
+    .skill-group h3{font-size:1rem;font-weight:700;margin-bottom:1.25rem;padding-bottom:.6rem;border-bottom:2px solid var(--border)}
+    .skill-item{margin-bottom:1.1rem}
+    .skill-top{display:flex;justify-content:space-between;margin-bottom:.4rem}
+    .skill-name{font-size:.87rem;font-weight:600}
+    .skill-pct{font-size:.8rem;color:var(--accent);font-weight:700}
+    .skill-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+    .skill-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+    /* PRICING */
+    #pricing{background:#fff}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .price-card{border-radius:var(--r);border:1.5px solid var(--border);padding:2rem;transition:all .3s;position:relative}
+    .price-card.featured{background:var(--primary);border-color:var(--primary);color:#fff}
+    .feat-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-size:.72rem;font-weight:700;padding:.3rem 1rem;border-radius:50px;white-space:nowrap}
+    .price-card:not(.featured):hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+    .p-label{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+    .price-card.featured .p-label{color:rgba(255,255,255,.5)}
+    .p-name{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;margin-bottom:.4rem}
+    .p-amount{font-family:'Syne',sans-serif;font-size:2.3rem;font-weight:800;color:var(--accent);margin-bottom:.2rem}
+    .price-card.featured .p-amount{color:var(--accent2)}
+    .p-desc{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .price-card.featured .p-desc{color:rgba(255,255,255,.5)}
+    .p-features{list-style:none;margin-bottom:1.75rem}
+    .p-feat{font-size:.86rem;color:var(--muted);padding:.42rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+    .price-card.featured .p-feat{color:rgba(255,255,255,.7);border-bottom-color:rgba(255,255,255,.1)}
+    .p-feat::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
+    .price-card.featured .p-feat::before{color:var(--accent2)}
+    .p-btn{display:block;text-align:center;padding:.85rem;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;background:#eef2ff;color:var(--accent);transition:all .2s}
+    .price-card.featured .p-btn{background:var(--accent);color:#fff}
+    .p-btn:hover{opacity:.85}
+
+    /* PROCESS */
+    #process{background:var(--bg2)}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+    .process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .step{text-align:center;position:relative;z-index:1}
+    .step-num{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent)}
+    .step h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+    .step p{font-size:.82rem;color:var(--muted);line-height:1.55}
+
+    /* WHY */
+    #why{background:#fff}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .why-card{padding:1.75rem;border-radius:var(--r);background:var(--bg2);border:1px solid var(--border)}
+    .why-icon{font-size:2rem;margin-bottom:.75rem}
+    .why-card h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+    .why-card p{font-size:.84rem;color:var(--muted);line-height:1.6}
+
+    /* CONTACT */
+    #contact{background:var(--primary);color:#fff}
+    #contact .s-title{color:#fff}
+    #contact .s-sub{color:rgba(255,255,255,.6)}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .ci-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:1.75rem}
+    .ci-icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .ci-item h4{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:.2rem}
+    .ci-item a,.ci-item p{color:#fff;text-decoration:none;font-weight:600;font-size:.93rem}
+    .cf{display:flex;flex-direction:column;gap:14px}
+    .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fg{display:flex;flex-direction:column;gap:6px}
+    .fg label{font-size:.8rem;color:rgba(255,255,255,.55);font-weight:500}
+    .fg input,.fg textarea,.fg select{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:8px;padding:.75rem 1rem;color:#fff;font-size:.9rem;font-family:inherit;outline:none;width:100%;transition:border-color .2s}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.35)}
+    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent2)}
+    .fg select option{background:var(--primary)}
+    .fg textarea{resize:vertical;min-height:110px}
+    .f-submit{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;padding:1rem;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;transition:opacity .2s}
+    .f-submit:hover{opacity:.9}
+
+    /* FOOTER */
+    footer{background:#0f0f1a;padding:1.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    footer p{font-size:.8rem;color:rgba(255,255,255,.35)}
+    .f-soc{display:flex;gap:10px}
+    .f-soc a{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:all .2s}
+    .f-soc a:hover{background:var(--accent);color:#fff}
+
+    /* MOBILE */
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .hamburger{display:block}
+      .hero-inner{grid-template-columns:1fr}
+      .hero-visual{display:none}
+      .stats-bar-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+      .services-grid,.why-grid{grid-template-columns:1fr}
+      .portfolio-grid,.skills-grid,.pricing-grid{grid-template-columns:1fr}
+      .process-steps{grid-template-columns:repeat(2,1fr)}
+      .process-steps::before{display:none}
+      .contact-inner{grid-template-columns:1fr}
+      .f-row{grid-template-columns:1fr}
+      footer{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="nav-logo">KK<span>Web</span> <div class="nav-dot"></div></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/918890977017" target="_blank" class="nav-cta">💬 WhatsApp Now</a>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">☰</button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="#services" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="#portfolio" onclick="this.parentElement.classList.remove('open')">Portfolio</a>
+  <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+  <a href="#process" onclick="this.parentElement.classList.remove('open')">Process</a>
+  <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">✦ Available for Projects · Rajasthan & Remote</div>
+      <h1>Professional Websites &<em> Server Setup</em> for Your Business</h1>
+      <p>I build fast, modern websites and set up reliable servers for businesses across Rajasthan. From small shops to full business portals — everything end to end.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">🚀 Start Your Project</a>
+        <a href="#portfolio" class="btn-secondary">View My Work →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="float-badge fb1">⚡ Live in 7 days</div>
+        <div class="float-badge fb2">🌐 100% Responsive</div>
+        <div class="hc-top">
+          <div class="hc-av">KC</div>
+          <div>
+            <div class="hc-name">Kailash Choudhary</div>
+            <div class="hc-role">Web Developer & Server Expert</div>
+          </div>
+          <div class="hc-status">● Available</div>
+        </div>
+        <div class="hc-tags">
+          <span class="hc-tag on">HTML/CSS</span>
+          <span class="hc-tag on">JavaScript</span>
+          <span class="hc-tag on">Server Setup</span>
+          <span class="hc-tag">Python</span>
+          <span class="hc-tag">Vercel</span>
+          <span class="hc-tag">GitHub</span>
+        </div>
+        <div class="hc-stats">
+          <div class="hc-stat"><div class="hc-stat-n">5+</div><div class="hc-stat-l">Projects</div></div>
+          <div class="hc-stat"><div class="hc-stat-n">100%</div><div class="hc-stat-l">On Time</div></div>
+          <div class="hc-stat"><div class="hc-stat-n">24h</div><div class="hc-stat-l">Support</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div><div class="stat-n">5<span>+</span></div><div class="stat-l">Websites Delivered</div></div>
+    <div><div class="stat-n">₹0<span>/mo</span></div><div class="stat-l">Hosting Cost</div></div>
+    <div><div class="stat-n">7<span> days</span></div><div class="stat-l">Average Delivery</div></div>
+    <div><div class="stat-n">24<span>/7</span></div><div class="stat-l">WhatsApp Support</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">What I Do</div>
+    <div class="s-title">Services I Offer</div>
+    <p class="s-sub">Complete digital solutions — from building your website to hosting it online securely.</p>
+    <div class="services-grid">
+      <div class="svc-card"><div class="svc-icon" style="background:#eef2ff">🌐</div><h3>Business Website</h3><p>Professional 5-page website for your shop or business. Mobile-friendly, fast loading, WhatsApp integrated.</p><div class="svc-price">Starting ₹3,000</div></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#f0fdff">🖥️</div><h3>Server Setup & Hosting</h3><p>Complete server configuration, domain connection, SSL certificate, and free hosting setup on Vercel.</p><div class="svc-price">Starting ₹2,000</div></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#fef3c7">🛒</div><h3>Product Catalogue Site</h3><p>Showcase all your products online with photos, descriptions, and WhatsApp order button.</p><div class="svc-price">Starting ₹5,000</div></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#f0fdf4">🔧</div><h3>Website Maintenance</h3><p>Annual contract — update content, fix issues, add new pages. Keep your website fresh all year.</p><div class="svc-price">₹1,500/year</div></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#fdf4ff">🌍</div><h3>Domain & DNS Setup</h3><p>Domain registration, DNS configuration, Google Search Console verification. Everything done for you.</p><div class="svc-price">₹500 + domain cost</div></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#fff1f2">📱</div><h3>Mobile-First Design</h3><p>70% customers browse on phones. Your site will look perfect on every screen size — guaranteed.</p><div class="svc-price">Included in all packages</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="eyebrow">My Work</div>
+    <div class="s-title">Recent Projects</div>
+    <p class="s-sub">Real websites built for real businesses — live and running.</p>
+    <div class="portfolio-grid">
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0d2137,#1a4a7a)">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="10" y="20" width="40" height="28" rx="4" fill="none" stroke="#fff" stroke-width="2"/><path d="M50 30l18-8v28l-18-8z" fill="none" stroke="#60a5fa" stroke-width="2"/><circle cx="30" cy="34" r="7" fill="none" stroke="#60a5fa" stroke-width="2"/><circle cx="30" cy="34" r="3" fill="#60a5fa"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">CCTV / Security</span>
+          <h3>G Tech CCTV Solutions</h3>
+          <p>Complete business website for a CCTV dealer in Kuchaman City — 5 pages, 50+ products, WhatsApp integration, Google Maps, Reviews section.</p>
+          <a href="https://www.gtechcctv.com" target="_blank" class="proj-link">View Live Site →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#1a1a2e,#4f46e5)">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="15" y="15" width="50" height="50" rx="8" fill="none" stroke="#fff" stroke-width="2"/><path d="M25 40h30M40 25v30" stroke="#a5b4fc" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Portfolio</span>
+          <h3>KK Web Solutions</h3>
+          <p>This portfolio website — built to showcase services, attract clients, and generate leads through WhatsApp and contact form.</p>
+          <a href="#" class="proj-link">You're Here! 👋</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#064e3b,#10b981)">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="20" y="25" width="40" height="30" rx="4" fill="none" stroke="#fff" stroke-width="2"/><path d="M30 40h20M40 33v14" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Available Slot</span>
+          <h3>Your Business Here</h3>
+          <p>Next project slot available — get your business website built. Contact now to discuss your requirements and get a free quote.</p>
+          <a href="#contact" class="proj-link">Start Your Project →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0c1a2e,#0369a1)">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="10" y="30" width="60" height="20" rx="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="20" cy="40" r="4" fill="#38bdf8"/><circle cx="32" cy="40" r="4" fill="#38bdf8"/><circle cx="44" cy="40" r="4" fill="#38bdf8"/><path d="M20 50v8M32 50v8M44 50v8" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Server Setup</span>
+          <h3>Server & Hosting Projects</h3>
+          <p>Multiple server configuration projects — domain DNS, SSL certificates, Vercel deployments, GitHub CI/CD pipelines for clients.</p>
+          <a href="#contact" class="proj-link">Get Server Setup →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow">Expertise</div>
+    <div class="s-title">My Technical Skills</div>
+    <p class="s-sub">Everything needed to build and deploy a complete website — design to server.</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>🎨 Frontend Development</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">HTML & CSS</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Responsive Design</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">UI/UX Design</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <h3>⚙️ Server & DevOps</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Server Setup & Config</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Domain & DNS Management</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">GitHub & Vercel Deploy</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">SSL & Security Setup</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="eyebrow">Transparent Pricing</div>
+    <div class="s-title">Simple, Clear Packages</div>
+    <p class="s-sub">No hidden charges. You know exactly what you pay and what you get.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="p-label">Starter</div>
+        <div class="p-name">Basic Website</div>
+        <div class="p-amount">₹3,000</div>
+        <div class="p-desc">One-time · Perfect for small businesses</div>
+        <ul class="p-features">
+          <li class="p-feat">5 Pages (Home, About, Services, Contact)</li>
+          <li class="p-feat">Mobile Responsive Design</li>
+          <li class="p-feat">WhatsApp Button Integration</li>
+          <li class="p-feat">Free Hosting (Vercel)</li>
+          <li class="p-feat">1 Month Free Support</li>
+        </ul>
+        <a href="https://wa.me/918890977017?text=Hello%20KK%20Web%20Solutions%2C%20Basic%20Website%20chahiye" target="_blank" class="p-btn">Get Started →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="feat-badge">⭐ Most Popular</div>
+        <div class="p-label">Business</div>
+        <div class="p-name">Full Business Site</div>
+        <div class="p-amount">₹8,000</div>
+        <div class="p-desc">One-time · Best for shops & dealers</div>
+        <ul class="p-features">
+          <li class="p-feat">All Basic features included</li>
+          <li class="p-feat">Product Catalogue (50+ items)</li>
+          <li class="p-feat">Google Maps Integration</li>
+          <li class="p-feat">Domain Setup Included</li>
+          <li class="p-feat">SEO Optimization</li>
+          <li class="p-feat">3 Months Free Support</li>
+        </ul>
+        <a href="https://wa.me/918890977017?text=Hello%20KK%20Web%20Solutions%2C%20Business%20Website%20chahiye" target="_blank" class="p-btn">Get Started →</a>
+      </div>
+      <div class="price-card">
+        <div class="p-label">Premium</div>
+        <div class="p-name">Custom Solution</div>
+        <div class="p-amount">₹15,000+</div>
+        <div class="p-desc">Custom quote · Advanced requirements</div>
+        <ul class="p-features">
+          <li class="p-feat">All Business features</li>
+          <li class="p-feat">Custom Backend / Database</li>
+          <li class="p-feat">Admin Panel</li>
+          <li class="p-feat">Payment Integration</li>
+          <li class="p-feat">Advanced Server Setup</li>
+          <li class="p-feat">1 Year Full Support</li>
+        </ul>
+        <a href="https://wa.me/918890977017?text=Hello%20KK%20Web%20Solutions%2C%20Custom%20Solution%20chahiye" target="_blank" class="p-btn">Discuss Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="eyebrow">How It Works</div>
+    <div class="s-title">My Work Process</div>
+    <p class="s-sub">Simple and transparent — from first call to live website.</p>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">1</div><h3>Free Consultation</h3><p>WhatsApp karo, requirements batao. Free mein samjhata hun kya banana hai.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Design & Quote</h3><p>Aapke business ke liye design plan aur final pricing — koi hidden charge nahi.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Build & Review</h3><p>Website banata hun, aap dekhte ho, changes karte hain — 100% satisfied hone tak.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Launch & Support</h3><p>Website live! Domain, hosting sab setup. Baad mein bhi support milta rahega.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="eyebrow">Why Choose Me</div>
+    <div class="s-title">What Makes KK Web Different</div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🏠</div><h3>Local + Remote</h3><p>Kuchaman City se hun — local businesses ko personally samajhta hun. Rajasthan mein kahin bhi kaam karta hun.</p></div>
+      <div class="why-card"><div class="why-icon">💰</div><h3>Affordable Pricing</h3><p>Big agency quality, freelancer price. Vercel free hosting — aapka long-term cost bilkul minimum.</p></div>
+      <div class="why-card"><div class="why-icon">⚡</div><h3>Fast Delivery</h3><p>Basic website 3-5 din mein. Business website 7-10 din mein. Koi unnecessary delay nahi.</p></div>
+      <div class="why-card"><div class="why-icon">📱</div><h3>WhatsApp Support</h3><p>Problem aaye to seedha WhatsApp karo. 24 ghante mein response guaranteed.</p></div>
+      <div class="why-card"><div class="why-icon">🤝</div><h3>Full Team Available</h3><p>Backend, frontend, Python experts — bade projects ke liye poori team ready hai.</p></div>
+      <div class="why-card"><div class="why-icon">🎯</div><h3>Results Focused</h3><p>Sirf sundar website nahi — aisi website jo customers laaye. WhatsApp leads, calls, enquiries.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--accent2)">Get In Touch</div>
+    <div class="s-title">Start Your Project Today</div>
+    <p class="s-sub">Free consultation — no commitment. Just tell me what you need.</p>
+    <div class="contact-inner">
+      <div>
+        <div class="ci-item"><div class="ci-icon">📞</div><div><h4>Call / WhatsApp</h4><a href="tel:+918890977017">+91 88909 77017</a></div></div>
+        <div class="ci-item"><div class="ci-icon">🌐</div><div><h4>Portfolio</h4><a href="https://kailash-eta.vercel.app" target="_blank">kailash-eta.vercel.app</a></div></div>
+        <div class="ci-item"><div class="ci-icon">📍</div><div><h4>Location</h4><p>Kuchaman City, Nagaur, Rajasthan</p></div></div>
+        <div class="ci-item"><div class="ci-icon">⏰</div><div><h4>Working Hours</h4><p>Mon–Sat: 9:00 AM – 8:00 PM</p></div></div>
+        <a href="https://wa.me/918890977017?text=Hello%20KK%20Web%20Solutions%2C%20mujhe%20website%20banwani%20hai" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:1rem 2rem;border-radius:12px;font-weight:700;text-decoration:none;margin-top:.5rem">💬 Chat on WhatsApp</a>
+      </div>
+      <form class="cf" onsubmit="submitForm(event)">
+        <div class="f-row">
+          <div class="fg"><label>Your Name</label><input type="text" placeholder="Ramesh Kumar" required/></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="98765 43210" required/></div>
+        </div>
+        <div class="fg"><label>Business Name</label><input type="text" placeholder="Your Shop / Company name"/></div>
+        <div class="fg"><label>Service Needed</label>
+          <select>
+            <option>Basic Website (₹3,000)</option>
+            <option>Business Website (₹8,000)</option>
+            <option>Product Catalogue</option>
+            <option>Server Setup</option>
+            <option>Custom Solution</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tell me about your project</label><textarea placeholder="Meri ek dukaan hai, website chahiye products dikhane ke liye..."></textarea></div>
+        <button type="submit" class="f-submit">Send Message 🚀</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 KK Web Solutions · Kailash Choudhary · Kuchaman City, Rajasthan</p>
+  <div class="f-soc">
+    <a href="https://wa.me/918890977017" target="_blank">💬</a>
+    <a href="https://kailash-eta.vercel.app" target="_blank">🌐</a>
+  </div>
+</footer>
+
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  const els = e.target.elements;
+  const name = e.target.querySelector('input[type=text]').value;
+  const phone = e.target.querySelector('input[type=tel]').value;
+  const biz = e.target.querySelectorAll('input[type=text]')[1]?.value || '';
+  const svc = e.target.querySelector('select').value;
+  const msg = e.target.querySelector('textarea').value;
+  const text = `Hello KK Web Solutions!\n\nName: ${name}\nPhone: ${phone}\nBusiness: ${biz}\nService: ${svc}\n\n${msg}`;
+  window.open(`https://wa.me/918890977017?text=${encodeURIComponent(text)}`, '_blank');
+}
+</script>
+</body>
+</html>
