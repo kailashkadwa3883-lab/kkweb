@@ -237,3 +237,24 @@ section.section{padding:5rem 5%}
   .footer-top{grid-template-columns:1fr}
   .hero-trust{flex-wrap:wrap;gap:.75rem}
 }
+
+/* ── KK LOGO IMAGE ── */
+.nav-logo { padding: 8px 0; }
+.nav-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: .75rem;
+  /* Footer is dark bg — invert to white */
+  filter: invert(1) brightness(2);
+}
+@media(max-width:768px) {
+  .nav-logo-img { height: 38px !important; }
+}
