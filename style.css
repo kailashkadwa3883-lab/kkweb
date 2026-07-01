@@ -258,3 +258,22 @@ section.section{padding:5rem 5%}
 @media(max-width:768px) {
   .nav-logo-img { height: 38px !important; }
 }
+
+/* ── FLUID SCROLL REVEAL ── */
+.reveal{
+  opacity:0;
+  transform:translateY(36px) scale(.98);
+  filter:blur(4px);
+  transition:opacity .9s cubic-bezier(.22,1,.36,1),
+             transform .9s cubic-bezier(.22,1,.36,1),
+             filter .9s cubic-bezier(.22,1,.36,1);
+  will-change:opacity,transform,filter;
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;filter:none;transition:none}
+}
